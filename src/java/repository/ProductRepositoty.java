@@ -40,7 +40,34 @@ public class ProductRepositoty {
                 .orElse(null);
 
     }
+    
+    public static Product getProductByName(String productName) {
+        return getAllProduct().stream()
+                .filter(product -> product.getProductName().equals(productName))
+                .findFirst()
+                .orElse(null);
 
+    }
+    
+    
+    public static Product getProductBySearchName(String Str) {
+        String s = Str;
+        Product t= getAllProduct().stream()
+                .filter(product -> product.getProductName().startsWith(Str))
+                .findFirst()
+                .orElse(null);
+        if (t!=null){
+            return t;
+        }
+        else if(Str.length()>1)
+        {
+            s = s.substring(0, s.length() - 1);
+            return getProductBySearchName(s);
+
+        }
+        return null;
+    }
+    
     public static OrderDAO getOrderDAOById(String orderId) {
         return getAllOrder().stream()
                 .filter(Odao -> Odao.getOrderId().equals(orderId))

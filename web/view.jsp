@@ -78,14 +78,15 @@
                     <a href="index.jsp">E-<span>COMMERCE</span></a>
                 </div>
                 <div class="search">
-                    <input type="text" value=""
+                    <form method="GET" action="viewSearch.jsp">
+                    <input type="text" name="producName" 
                            placeholder="<%=map.get("place_holder")%>" 
                            onfocus="this.value = '';" 
                            onblur="if (this.value === '') {
                                        this.value = '';
                                    }" >
                     <input type="submit"  value="<%=map.get("search")%>">
-
+                    </form>
                 </div>
                 <div class="clearfix"> </div>
             </div>
