@@ -46,7 +46,11 @@ public class UpdateCart extends HttpServlet {
             String productString = "<tr>"
                     + "<td>" + product.getProductId() + "</td>"
                     + "<td>" + name + "</td>"
-                    + "<td>" + product.getProductPrice() + "</td></tr>";
+                    + "<td>" + product.getProductPrice() + "</td>"           
+                    + "<td><form  name='subCartform'><input type='button' onclick='subToCart()' value='remove'></input>"
+                    + "<input type='hidden' value='"+product.getProductId()+"' name='idproduct'></input>"
+                    + "</form></td>"
+                    + "</tr>";
             value = value.concat(productString);
         }
         

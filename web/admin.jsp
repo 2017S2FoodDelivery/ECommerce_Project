@@ -18,6 +18,7 @@
     Map<String, String> languageMap = (HashMap<String, String>) Settings.getSessionAttribute(request, "languageCode");
     UserSessionHolder ush = Settings.getCurrentUserSession(request);
     List<Account> unactivatedAccounts = AccountRepository.getUnactivatedAccounts();
+    List<OrderDAO> orders = ProductRepositoty.getAllOrder();
     if (languageMap == null) {
         request.getRequestDispatcher("language?lang=vi").forward(request, response);
 
@@ -124,7 +125,46 @@
                         </div>
                         <div id="stats" class="tab-pane fade">
                             <h3><%=languageMap.get("admin.stats")%></h3>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <div id="active" class="tab-pane fade in active">
+                                <h3>
+<!--                                <%=languageMap.get("admin.activateacc")%>-->
+<!--                                <a href="#" class="btn btn-sm btn-success"><%=languageMap.get("admin.atvall")%></a>
+                                <a href="#" class="btn btn-sm btn-warning"><%=languageMap.get("admin.inall")%></a>-->
+                                </h3>
+                                <div id="account-table">
+                                <div class="table-responsive">
+                                    
+                                        <table class="table table-hover table-condensed">
+                                            <thead >
+                                                <tr>
+                                                    <th>Customer ID</th>
+                                                    <th>Full Name</th>
+                                                    <th>Number Phone</th>
+                                                    <th>Address</th>
+                                                    <th>Order Date</th>
+                                                    
+                                                </tr>   
+                                            </thead>
+
+                                            <tbody>
+                                                <% for (OrderDAO order : orders) {
+                                                        out.print("<tr id='" + order.getCardid() + "'>"
+                                                                + "<td>" + order.getCustomerId() + "</td>"
+                                                                
+                                                                + "<td>" + order.getOrderFullname() + "</td>" 
+                                                                + "<td>" + order.getOrderPhone() + "</td>"        
+                                                                + "<td>" + order.getOrderAddress() + "</td>"
+                                                                + "<td>" + order.getOrderDate() + "</td></tr>");
+
+                                                    }
+                                                %>                                       
+                                            </tbody>
+
+                                        </table>
+                                    
+                                </div>
+                            </div>
+                            </div>
                         </div>
                         <div id="profits" class="tab-pane fade">
                             <h3><%=languageMap.get("admin.profit")%></h3>

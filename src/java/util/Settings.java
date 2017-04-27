@@ -59,6 +59,12 @@ public class Settings {
         setSessionAttribute(request, CART_NAME, cart);
     }
     
+    public static void subToCart(HttpServletRequest request, Product product) {
+        Cart cart = getCart(request);
+        cart.removeProduct(product);
+        removeSessionAttribute(request, CART_NAME);
+        setSessionAttribute(request, CART_NAME, cart);
+    }
     
     public static void setWebUserSession(HttpServletRequest request,
             UserSessionHolder userSessionHolder, Account account) {

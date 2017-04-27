@@ -24,6 +24,13 @@ function addToCart() {
     baseSend(url, getCartInfo);
 }
 
+function subToCart() {
+    var productid = document.subCartform.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+
+}
+
 function getCartInfo() {
     if (request.readyState === 4) {
         var val = request.responseText;
