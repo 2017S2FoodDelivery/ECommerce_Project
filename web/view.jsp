@@ -79,7 +79,7 @@
                 </div>
                 <div class="search">
                     <form method="GET" action="viewSearch.jsp">
-                    <input type="text" name="producName" 
+                    <input type="text" name="productName" 
                            placeholder="<%=map.get("place_holder")%>" 
                            onfocus="this.value = '';" 
                            onblur="if (this.value === '') {
