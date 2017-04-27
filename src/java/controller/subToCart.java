@@ -33,7 +33,7 @@ public class subToCart extends HttpServlet {
         PrintWriter out = response.getWriter();
         String productId = request.getParameter("productid");
         
-        System.out.print("hii hihjif\n \n \n hdufhu \n\ndhfugoi");
+        
         
         
         Map<String, String> map = (HashMap<String, String>) Settings.getSessionAttribute(request, "languageCode");

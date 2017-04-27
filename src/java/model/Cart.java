@@ -20,6 +20,6 @@ public class Cart {
     }
     
     public void removeProduct(Product product){
-        this.products.removeAll(products);
+        this.products.remove(product);
     }
 }

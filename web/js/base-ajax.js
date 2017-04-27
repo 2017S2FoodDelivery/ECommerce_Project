@@ -31,6 +31,60 @@ function subToCart() {
 
 }
 
+function subToCart(arg) {
+    if (arg ===0){
+    var productid = document.subCartform0.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===1){
+    var productid = document.subCartform1.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===2){
+    var productid = document.subCartform2.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===3){
+    var productid = document.subCartform3.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===4){
+    var productid = document.subCartform4.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===5){
+    var productid = document.subCartform5.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===6){
+    var productid = document.subCartform6.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===7){
+    var productid = document.subCartform7.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===8){
+    var productid = document.subCartform8.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }else
+    if (arg ===9){
+    var productid = document.subCartform9.idproduct.value;
+    var url = "subCart?productid=" + productid;
+    baseSend(url, getCartInfo);
+    }
+
+}
+
 function getCartInfo() {
     if (request.readyState === 4) {
         var val = request.responseText;

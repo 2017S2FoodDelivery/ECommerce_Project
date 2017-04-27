@@ -38,7 +38,9 @@ public class UpdateCart extends HttpServlet {
                 + "                            </tr>"
                 + "                        </thead>"
                 + "                        <tbody>";
-
+        
+        int i =0;
+        
         for (Product product : cartProduct) {
             
             String name = map.get(product.getProductName()) == null ? product.getProductName() : map.get(product.getProductName());
@@ -47,11 +49,12 @@ public class UpdateCart extends HttpServlet {
                     + "<td>" + product.getProductId() + "</td>"
                     + "<td>" + name + "</td>"
                     + "<td>" + product.getProductPrice() + "</td>"           
-                    + "<td><form  name='subCartform'><input type='button' onclick='subToCart()' value='remove'></input>"
+                    + "<td><form  name='subCartform"+String.valueOf(i)+"'><input type='button' onclick='subToCart("+String.valueOf(i)+")' value='remove'></input>"
                     + "<input type='hidden' value='"+product.getProductId()+"' name='idproduct'></input>"
                     + "</form></td>"
                     + "</tr>";
             value = value.concat(productString);
+            i++;
         }
         
         out.print(value);
