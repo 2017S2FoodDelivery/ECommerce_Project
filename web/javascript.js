@@ -69,7 +69,8 @@ function appendComposer(firstName,lastName,composerId) {
 
     linkElement = document.createElement("a");
     linkElement.className = "popupItem";
-    linkElement.setAttribute("href", "autocomplete?action=lookup&id=" + composerId);
+//    linkElement.setAttribute("href", "autocomplete?action=lookup&id=" + composerId);
+    linkElement.setAttribute("href", "viewSearch.jsp?productName=" + composerId);
     linkElement.appendChild(document.createTextNode(firstName + " " + lastName));
     cell.appendChild(linkElement);
 }
