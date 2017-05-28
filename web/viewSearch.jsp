@@ -32,6 +32,9 @@
         <meta http-equiv="ContentType" content="text/html" charset="utf-8"/>
         <title><%=map.get("title")%></title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--        Link Jquery to fixed Logo_chat-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="javascript.js"></script>
@@ -46,6 +49,25 @@
         <script type="text/javascript" src="js/my-script.js"></script>
     </head>
     <body onload="init()"> 
+        <!--        Add logo chat-->
+
+<div id="LogoChat"><img src="images/Logo_Chat.png" alt="" style="z-index: 11; 
+                        position: fixed; 
+                        width: 50px; 
+                        height: 50px; 
+                        top: 500px; 
+                        right:0px; 
+                        float: right; 
+                        -moz-transform: scaleX(-1);
+                        -o-transform: scaleX(-1);
+                        -webkit-transform: scaleX(-1);
+    "/></div>
+<script>
+$(document).ready(function () {
+	$.lockfixed("#LogoChat", {offset: {top: 20, bottom: 470} });
+});
+</script>
+
         <!--header-->
         <div class="header">
             <div class="top-header">
@@ -89,8 +111,8 @@
                             id="complete-field"
                             onkeyup="doCompletion()" >
                     <temp id="auto-row" colspan="2" style="position:absolute; top: 37px;left: 0px">
-                                    <table style="z-index: 100; 
-                                                position: fixed; 
+                                    <table style="z-index: 10; 
+                                                position: initial; 
                                                 background-color: 
                                                 rgb(255, 178, 30); 
                                                 width: 195px;

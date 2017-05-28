@@ -34,9 +34,10 @@ public class ComposerData {
         String sql ="SELECT * FROM product";        
         resultSet = statement.executeQuery(sql);
         while(resultSet.next()){
-            System.out.print(resultSet.getString("productname"));
-            String temp=resultSet.getString("productname");
-            composers.put(temp, new Composer(temp, temp, temp, temp));
+//            System.out.print(resultSet.getString("productname"));
+            String name=resultSet.getString("productname");
+            String id=resultSet.getString("productid");
+            composers.put(name, new Composer(name, name, name, name));
         }
         } catch (Exception e) {
         e.printStackTrace();

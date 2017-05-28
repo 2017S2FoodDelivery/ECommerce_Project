@@ -71,15 +71,15 @@
                     <h1 class="col-lg-20 text-center" style="font-size: 500%"><%=languageMap.get("admin.title")%></h1>
                     <hr style="border-top: 1px solid red; color:red">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a data-toggle="tab" class="btn-info btn-block" href="#activate"><%=languageMap.get("admin.activateacc")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                        <li ><a data-toggle="tab" class="btn-info btn-block" href="#activate"><%=languageMap.get("admin.activateacc")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
                         <li><a data-toggle="tab" class="btn-primary" href="#stats"><%=languageMap.get("admin.stats")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
                         <li><a data-toggle="tab" class="btn-danger" href="#profits"><%=languageMap.get("admin.profit")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
-                        <li><a data-toggle="tab" class="btn-primary" href="#upload"><%=languageMap.get("admin.upload")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
+                        <li class="active"><a data-toggle="tab" class="btn-primary" href="#upload"><%=languageMap.get("admin.upload")%> <span class="glyphicon glyphicon-arrow-down"></span></a></li>
 
                     </ul>
 
                     <div class="tab-content">
-                        <div id="activate" class="tab-pane fade in active">
+                        <div id="activate" class="tab-pane fade">
                             <h3>
                                 <%=languageMap.get("admin.activateacc")%>
 <!--                                <a href="#" class="btn btn-sm btn-success"><%=languageMap.get("admin.atvall")%></a>
@@ -173,9 +173,9 @@
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                         </div>
                             
-                        <div id="upload" class="tab-pane fade">
+                        <div id="upload" class="tab-pane fade in active">
                             <h3><%=languageMap.get("admin.upload")%></h3>
-                            <center><form action="UpdateProducts" enctype="multipart/form-data" method="post">
+                            <center><form action="UpdateProducts"  enctype="multipart/form-data" method="post">
                                     <table style="height: 200px; width: 400px;">
                                     <tr>
                                         <td><%=languageMap.get("upload.id")%></td>
@@ -194,23 +194,8 @@
                                         <td><input type="text" name="supplierid" id="supplierid"></td>
                                     </tr>                                  
                                 </table>
-<!--                            Function Update-->
-                            <script>
-                                function AddData(){
-//                                    Connect to database
-                                    var connection = new ActiveXObject("ADODB.Connection");
-                                    var connectionstring = "jdbc:mysql://localhost:3306/";
-                                    connection.Open(connectionstring);
-
-                                    var x = document.getElementById("id").value;
-                                    alert(x);
-                                  
-                                }
-                            </script>
-<!--                        End Function Update-->  
-
-                            <center><input type="file" enctype="multipart/form-data" name="file" /></center>
-                            <center><input type="submit" value="<%=languageMap.get("upload.submit")%>"></center>
+                                <center><input type="file"  name="file" /></center>
+                                <center><input type="submit" value="<%=languageMap.get("upload.submit")%>" onclick="AddData()"></center>
                             </form></center>
                         </div>
                     </div>

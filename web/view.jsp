@@ -33,6 +33,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--        Using Ajax-->
+        <script type="text/javascript" src="javascript.js"></script>
+        
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/viewCSS.css" rel="stylesheet" type="text/css" media="all" />
@@ -43,7 +46,26 @@
         <script src="js/base-ajax.js"></script>
         <script type="text/javascript" src="js/my-script.js"></script>
     </head>
-    <body> 
+    <body onload="init()"> 
+        <!--        Add logo chat-->
+
+<div id="LogoChat"><img src="images/Logo_Chat.png" alt="" style="z-index: 11; 
+                        position: fixed; 
+                        width: 50px; 
+                        height: 50px; 
+                        top: 500px; 
+                        right:0px; 
+                        float: right; 
+                        -moz-transform: scaleX(-1);
+                        -o-transform: scaleX(-1);
+                        -webkit-transform: scaleX(-1);
+    "/></div>
+<script>
+$(document).ready(function () {
+	$.lockfixed("#LogoChat", {offset: {top: 20, bottom: 470} });
+});
+</script>
+
         <!--header-->
         <div class="header">
             <div class="top-header">
@@ -78,14 +100,26 @@
                     <a href="index.jsp">E-<span>COMMERCE</span></a>
                 </div>
                 <div class="search">
-                    <form method="GET" action="viewSearch.jsp">
+                    <form method="GET" action="autocomplete">
                     <input type="text" name="productName" 
                            placeholder="<%=map.get("place_holder")%>" 
                            onfocus="this.value = '';" 
                            onblur="if (this.value === '') {
                                        this.value = '';
-                                   }" >
-                    <input type="submit"  value="<%=map.get("search")%>">
+                                   }" 
+                            id="complete-field"
+                            onkeyup="doCompletion()">
+                    <temp id="auto-row" colspan="2" style="position:absolute; top: 37px;left: 0px">
+                                    <table style="z-index: 10; 
+                                                position: initial; 
+                                                background-color: 
+                                                rgb(255, 178, 30); 
+                                                width: 195px;
+                                                padding: 10px; 
+                                                background-color: #c5e7e0;"
+                                           id="complete-table" class="popupBox" ></table>
+                    </temp>
+                    <input type="submit" formaction="viewSearch.jsp" value="<%=map.get("search")%>">
                     </form>
                 </div>
                 <div class="clearfix"> </div>
