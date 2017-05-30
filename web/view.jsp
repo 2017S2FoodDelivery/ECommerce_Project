@@ -49,7 +49,7 @@
     <body onload="init()"> 
         <!--        Add logo chat-->
 
-<div id="LogoChat"><img src="images/Logo_Chat.png" alt="" style="z-index: 11; 
+<div id="LogoChat"><a href="http://localhost:8083" target="_blank"><img src="images/Logo_Chat.png" alt="" style="z-index: 11; 
                         position: fixed; 
                         width: 50px; 
                         height: 50px; 
@@ -59,7 +59,7 @@
                         -moz-transform: scaleX(-1);
                         -o-transform: scaleX(-1);
                         -webkit-transform: scaleX(-1);
-    "/></div>
+                        "/></a></div>
 <script>
 $(document).ready(function () {
 	$.lockfixed("#LogoChat", {offset: {top: 20, bottom: 470} });
