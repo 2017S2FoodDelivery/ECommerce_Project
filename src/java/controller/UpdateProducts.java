@@ -87,8 +87,8 @@ public class UpdateProducts extends HttpServlet {
         String driverName = "com.mysql.jdbc.Driver";
         String connectionUrl = "jdbc:mysql://localhost:3306/";
         String dbName = "ecmrproj";
-        String userId = "lenguyen";
-        String password = "thongminh";
+        String userId = "username";
+        String password = "password";
 
         try {
         Class.forName(driverName);
