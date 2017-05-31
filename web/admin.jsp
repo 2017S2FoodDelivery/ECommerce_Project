@@ -144,7 +144,8 @@
                                                     <th>Number Phone</th>
                                                     <th>Address</th>
                                                     <th>Order Date</th>
-                                                    
+                                                    <th>Total Cost</th>
+                                                    <th>Order Type</th>
                                                 </tr>   
                                             </thead>
 
@@ -156,7 +157,9 @@
                                                                 + "<td>" + order.getOrderFullname() + "</td>" 
                                                                 + "<td>" + order.getOrderPhone() + "</td>"        
                                                                 + "<td>" + order.getOrderAddress() + "</td>"
-                                                                + "<td>" + order.getOrderDate() + "</td></tr>");
+                                                                + "<td>" + order.getOrderDate() + "</td>"
+                                                                + "<td>" + order.getTotalCost() + "</td>"
+                                                                + "<td>" + order.getOrdertype() + "</td></tr>");
 
                                                     }
                                                 %>                                       

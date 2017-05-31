@@ -1,3 +1,9 @@
+<%@page import="repository.*"%>
+
+<%@page import="model.Order"%>
+<%@page import="dao.OrderDAO"%>
+<%@page import="model.Product"%>
+<%@page import="java.util.*"%>
 
 <%@page import="util.Encript"%>
 <%@page import="model.Account"%>
@@ -12,6 +18,7 @@
     Map<String, String> languageMap = (HashMap<String, String>) Settings.getSessionAttribute(request, "languageCode");
     UserSessionHolder ush = Settings.getCurrentUserSession(request);
     Account account = Settings.getCurrentAccount(request);
+    List<OrderDAO> orders = ProductRepositoty.getAllOrder();
 
     if (languageMap == null) {
         request.getRequestDispatcher("language?lang=vi").forward(request, response);
@@ -104,7 +111,41 @@
 
                         <div id="history" class="tab-pane fade">
                             <h3><%=languageMap.get("acc.history")%></h3>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                            <div id="history-table">
+                                <div class="table-responsive">
+                                    
+                                        <table class="table table-hover table-condensed">
+                                            <thead >
+                                                <tr>
+                                                    <th>Customer ID</th>
+                                                    <th>Full Name</th>
+                                                    <th>Number Phone</th>
+                                                    <th>Address</th>
+                                                    <th>Order Date</th>
+                                                    <th>Total Cost</th>
+                                                </tr>   
+                                            </thead>
+
+                                            <tbody>
+                                                <% for (OrderDAO order : orders) {
+                                                    if (order.getCustomerId().contentEquals(account.getId()))
+                                                        out.print("<tr id='" + order.getCardid() + "'>"
+                                                                + "<td>" + order.getCustomerId() + "</td>"
+                                                                
+                                                                + "<td>" + order.getOrderFullname() + "</td>" 
+                                                                + "<td>" + order.getOrderPhone() + "</td>"        
+                                                                + "<td>" + order.getOrderAddress() + "</td>"
+                                                                + "<td>" + order.getOrderDate() + "</td>"
+                                                                + "<td>" + order.getTotalCost()+ "</td></tr>");
+
+                                                    }
+                                                %>                                       
+                                            </tbody>
+
+                                        </table>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
